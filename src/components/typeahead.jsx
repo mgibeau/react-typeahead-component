@@ -345,7 +345,7 @@ module.exports = React.createClass({
     },
 
     focus: function() {
-        this.refs.input.getDOMNode().focus();
+        React.findDOMNode(this.refs.input).focus();
     },
 
     handleFocus: function(event) {
@@ -501,7 +501,7 @@ module.exports = React.createClass({
         var _this = this,
             target = event.target;
 
-        if (target !== window && !this.getDOMNode().contains(target)) {
+        if (target !== window && !React.findDOMNode(this).contains(target)) {
             _this.hideHint();
             _this.hideDropdown();
         }
